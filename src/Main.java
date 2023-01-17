@@ -28,9 +28,9 @@ public class Main
 		System.out.println("2. Delete Package");
 		System.out.println("3. Modify Package");
 		System.out.println("4. Back");
-		System.out.println("5.Exit");
+		System.out.println("5. Exit");
 		System.out.println("========================");
-		System.out.println("Input Choice (1-4) :");
+		System.out.println("Input Choice (1-5) :");
 		choice = myObj.nextInt();
 		System.out.print("\033[H\033[2J"); 
 		switch(choice){
@@ -130,9 +130,9 @@ public class Main
 		System.out.println("Main Page");
 		System.out.println("1. Login");
 		System.out.println("2. Register");
-		System.out.println("4.Check Account");
-		System.out.println("3. Exit");
-		System.out.println("Input Choice (1-3) :");
+		System.out.println("3. Check Account");
+		System.out.println("4. Exit");
+		System.out.println("Input Choice (1-4) :");
 		int choice = myObj.nextInt();
 		do{
 		    System.out.print("\033[H\033[2J"); 
