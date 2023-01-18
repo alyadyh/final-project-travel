@@ -18,7 +18,6 @@ public class Main
         }
     }
     
-    
     static void adminsetting(){
         System.out.print("\033[H\033[2J"); 
         int choice,choice2;
@@ -62,12 +61,16 @@ public class Main
 				System.out.println("===========================================================================================================");
 				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
 				for(int i = 0;i<paket.size();i++){
-					System.out.print((" | " + (i+1) + ".\t || "));
+					System.out.print((" | " + (i+1) + "\t || "));
 					paket.get(i).print_data();
 				}
-				System.out.println("===========================================================================================================\n");
+				System.out.println("===========================================================================================================");
 				System.out.print("Choose Package Number(Ex:1): ");
 				choice2 = myObj.nextInt();
+				paket.remove(choice2 - 1);
+				System.out.println("Package has been succesfully deleted!!");
+			  	promptEnterKey();
+				adminsetting();
 		        
 		    case 3:
 		      	System.out.println("===========================================================================================================");
