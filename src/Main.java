@@ -20,7 +20,7 @@ public class Main
     
     static void adminsetting(){
         System.out.print("\033[H\033[2J"); 
-        int choice,choice2;
+        int choice, choice2;
 		Scanner myObj = new Scanner(System.in);
 
 		System.out.println("========================");
@@ -58,6 +58,21 @@ public class Main
 				adminsetting();
 		      
 		    case 2:
+				System.out.println(" ===========================================================================================================");
+				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+				for(int i = 0;i<paket.size();i++){
+					System.out.print((" | " + (i+1) + "\t || "));
+					paket.get(i).print_data();
+				}
+				System.out.println(" ===========================================================================================================");
+				System.out.print("Choose Package Number(Ex:1): ");
+				choice2 = myObj.nextInt();
+				paket.remove(choice2 - 1);
+				System.out.println("Package has been succesfully deleted!!");
+			  	promptEnterKey();
+				adminsetting();
+		        
+		    case 3:
 				System.out.println("===========================================================================================================");
 				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
 				for(int i = 0;i<paket.size();i++){
@@ -67,21 +82,59 @@ public class Main
 				System.out.println("===========================================================================================================");
 				System.out.print("Choose Package Number(Ex:1): ");
 				choice2 = myObj.nextInt();
-				paket.remove(choice2 - 1);
-				System.out.println("Package has been succesfully deleted!!");
-			  	promptEnterKey();
-				adminsetting();
-		        
-		    case 3:
-		      	System.out.println("===========================================================================================================");
-				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
-				for(int i = 0;i<paket.size();i++){
-					System.out.print((" | " + (i+1) + ".\t || "));
-					paket.get(i).print_data();
-				}
-				System.out.println("===========================================================================================================\n");
-		        System.out.println("Choose Package Number(Ex:1):");
-		        choice2 = myObj.nextInt();
+
+				System.out.println();
+				System.out.println("Choose Section you want to edit!!");
+			  	System.out.println("1.Package Name");
+			  	System.out.println("2.Transportation");
+			  	System.out.println("3.Destination");
+			  	System.out.println("4.Price");
+			  	System.out.println("5.Ticket Amount");
+			  	System.out.print("Input Choice(1-5): ");
+			  	int choice3 = myObj.nextInt();
+			  	if(choice3 == 1){
+			  		System.out.print("\nPackage Name: ");
+			  		String changepackname = myObj.next();
+			  		paket.get(choice2 - 1).set_namapaket(changepackname);
+			  		System.out.println("Data has been successfully changed!");
+			  		promptEnterKey();
+			  		adminsetting();
+			  	}
+			  	else if(choice3 == 2){
+			  		System.out.print("\nTransportation: ");
+			  		String changetransport = myObj.next();
+			  		paket.get(choice2 - 1).set_jenisken(changetransport);
+			  		System.out.println("Data has been successfully changed!");
+			  		promptEnterKey();
+			  		adminsetting();
+			  	}
+			  	else if(choice3 == 3){
+			  		myObj.nextLine();
+			  		System.out.print("\nDestination: ");
+			  		String changedest = myObj.nextLine();
+			  		paket.get(choice2 - 1).set_dest(changedest);
+			  		System.out.println("Data has been successfully changed!");
+			  		promptEnterKey();
+			  		adminsetting();
+			  	}
+			  	else if(choice3 == 4){
+					myObj.nextLine();
+			  		System.out.print("\nPrice: ");
+			  		int changeprice = myObj.nextInt();
+			  		paket.get(choice2 - 1).set_price(changeprice);
+			  		System.out.println("Data has been successfully changed!");
+			  		promptEnterKey();
+			  		adminsetting();
+			  	}
+			  	else if(choice3 == 5){
+			  		System.out.print("\nTicket amount: ");
+			  		int changetiket = myObj.nextInt();
+			  		paket.get(choice2 - 1).set_jumlahtiket(changetiket);
+			  		System.out.println("Data has been successfully changed!");
+			  		promptEnterKey();
+			  		adminsetting();
+			  	}
+
 		    case 4:
 		        main(null);
 		    case 5:
