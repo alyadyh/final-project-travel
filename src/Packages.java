@@ -24,6 +24,13 @@ class Packages{
         this.jumlahtiket = jumlah;
     }
     
+    void get_data(){
+        System.out.println("Package Name: "+this.namapaket);
+        System.out.println("Transportation: "+this.jeniskendaraan);
+        System.out.println("Destination: "+this.destinasi);
+        System.out.println("Price: "+this.price);
+        System.out.println("Ticket Amount: "+this.jumlahtiket);
+    }
     void print_data(){
             System.out.println(this.namapaket + "\t || " + this.jeniskendaraan +  "\t || " +
             this.destinasi +  "\t || " + this.price +  "\t || " + this.jumlahtiket + "\t |");
