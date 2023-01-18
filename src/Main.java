@@ -215,24 +215,26 @@ public class Main
 		      }
 		      
 		    case 3:
-		      System.out.println(" |No.\t || Package Name || Transportation || Destination || Price || Ticket Amount");
-		      for(int i = 0;i<paket.size();i++){
-		          System.out.print((i+1));
-		          paket.get(i).print_data();
-		      }
-		      System.out.print("Choose Package Number(Ex:1): ");
-		      choice3 = myObj.nextInt();
-		      System.out.print("\033[H\033[2J");
-		      increment++;
-		      reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
-		      for(int i=0;i<paket.size();i++){
-		          if((i+  1) == choice3){
-		              paket.get(i).get_data();
-		          }
-		      }
-		      reservasi.get(increment).get_data();
-		      System.out.println("Are you certain??\n");
-		      promptEnterKey();
+				System.out.println("===========================================================================================================");
+				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+				for(int i = 0;i<paket.size();i++){
+					System.out.print((" | " + (i+1) + "\t || "));
+					paket.get(i).print_data();
+				}
+				System.out.println("===========================================================================================================");
+		      	System.out.print("Choose Package Number(Ex:1): ");
+		      	choice3 = myObj.nextInt();
+		      	System.out.print("\033[H\033[2J");
+		      	increment++;
+		      	reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
+		      	for(int i=0;i<paket.size();i++){
+		          	if((i+  1) == choice3){
+		              	paket.get(i).get_data();
+		          	}
+		      	}
+		      	reservasi.get(increment).get_data();
+		      	System.out.println("Are you certain??\n");
+		      	promptEnterKey();
 		      
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");
@@ -267,11 +269,11 @@ public class Main
     }
     
 	public static void main(String[] args) {
-	    System.out.print("\033[H\033[2J"); 
-	    
-	   String idd = "";
-	   String passv = "";
-	   int var = 0;
+		System.out.print("\033[H\033[2J"); 
+		
+		String idd = "";
+		String passv = "";
+		int var = 0;
 	    Scanner myObj = new Scanner(System.in);
 		System.out.print("\033[H\033[2J"); 
 		System.out.println("Main Page");
@@ -332,7 +334,6 @@ public class Main
 		        promptEnterKey();
 		        main(null);
 	    	}
-	}while(choice != 1 || choice != 2 || choice != 3);
-}
-
+		}while(choice != 1 || choice != 2 || choice != 3);
+	}
 }
