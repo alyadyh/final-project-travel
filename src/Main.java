@@ -7,7 +7,8 @@ public class Main
     
     static ArrayList<Customer> cust =new ArrayList<Customer>();
     static ArrayList<Packages> paket = new ArrayList<Packages>();
-    // static List<Account> user =new ArrayList<>();
+    static ArrayList<Reservation> reservasi = new ArrayList<Reservation>();
+    static int increment = 0;
     
      public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");
@@ -221,15 +222,18 @@ public class Main
 		      }
 		      System.out.print("Choose Package Number(Ex:1): ");
 		      choice3 = myObj.nextInt();
-		      System.out.print("\033[H\033[2J"); 
+		      System.out.print("\033[H\033[2J");
+		      increment++;
+		      reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
 		      for(int i=0;i<paket.size();i++){
-		          if((i+1) == choice3){
+		          if((i+  1) == choice3){
 		              paket.get(i).get_data();
 		          }
 		      }
+		      reservasi.get(increment).get_data();
 		      System.out.println("Are you certain??\n");
 		      promptEnterKey();
-		      main(null);
+		      
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");
 		        System.exit(0);
