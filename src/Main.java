@@ -21,7 +21,7 @@ public class Main
     
     static void adminsetting(){
         System.out.print("\033[H\033[2J"); 
-        int choice;
+        int choice,choice2;
 		Scanner myObj = new Scanner(System.in);
 
 		System.out.println("========================");
@@ -62,16 +62,23 @@ public class Main
 				System.out.println("===========================================================================================================");
 				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
 				for(int i = 0;i<paket.size();i++){
-					System.out.print((" | " + (i+1) + "\t || "));
+					System.out.print((" | " + (i+1) + ".\t || "));
 					paket.get(i).print_data();
 				}
-				System.out.println("===========================================================================================================");
+				System.out.println("===========================================================================================================\n");
 				System.out.print("Choose Package Number(Ex:1): ");
-				int choice2 = myObj.nextInt();
+				choice2 = myObj.nextInt();
 		        
 		    case 3:
-		        // System.out.println("Choose Package Number(Ex:1):");
-		        // int choice2 = myObj.nextInt();
+		      	System.out.println("===========================================================================================================");
+				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+				for(int i = 0;i<paket.size();i++){
+					System.out.print((" | " + (i+1) + ".\t || "));
+					paket.get(i).print_data();
+				}
+				System.out.println("===========================================================================================================\n");
+		        System.out.println("Choose Package Number(Ex:1):");
+		        choice2 = myObj.nextInt();
 		    case 4:
 		        main(null);
 		    case 5:
@@ -82,7 +89,7 @@ public class Main
     
     static void usersetting(int varr){
         System.out.print("\033[H\033[2J"); 
-        int choice,choice1 = 0;
+        int choice,choice1 = 0,choice3 = 0;
 		Scanner myObj = new Scanner(System.in);
 // 		paket travel = new paket(String pakett,String jenisken,String dest,int harga,int jumlah);
 		System.out.println("========================");
@@ -157,7 +164,16 @@ public class Main
 		          paket.get(i).print_data();
 		      }
 		      System.out.print("Choose Package Number(Ex:1): ");
-		      int choice2 = myObj.nextInt();
+		      choice3 = myObj.nextInt();
+		      System.out.print("\033[H\033[2J"); 
+		      for(int i=0;i<paket.size();i++){
+		          if((i+1) == choice3){
+		              paket.get(i).get_data();
+		          }
+		      }
+		      System.out.println("Are you certain??\n");
+		      promptEnterKey();
+		      main(null);
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");
 		        System.exit(0);
@@ -183,8 +199,7 @@ public class Main
 	    
 	    System.out.print("Email: ");
 	    String mail = myObj.next();
-	    
-	   // Customer data = new Customer(uname, upass, ufname, adrs, mail);
+	   
 	   	cust.add(new Customer(uname, upass, ufname, adrs, mail));
 		System.out.println("Your data has been registered!");
 		promptEnterKey();
@@ -194,7 +209,6 @@ public class Main
 	public static void main(String[] args) {
 	    System.out.print("\033[H\033[2J"); 
 	    
-	   // Account check = new Account("tes","check");
 	   String idd = "";
 	   String passv = "";
 	   int var = 0;
@@ -258,7 +272,7 @@ public class Main
 		        promptEnterKey();
 		        main(null);
 	    	}
-	}while(choice != 1 || choice != 2);
+	}while(choice != 1 || choice != 2 || choice != 3);
 }
 
 }
