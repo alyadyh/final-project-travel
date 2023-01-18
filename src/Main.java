@@ -1,11 +1,12 @@
 import java.util.*;
- import java.io.*;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Main
 {
     
     static ArrayList<Customer> cust =new ArrayList<Customer>();
+    static ArrayList<Packages> paket = new ArrayList<Packages>();
     // static List<Account> user =new ArrayList<>();
     
      public static void promptEnterKey(){
@@ -28,36 +29,49 @@ public class Main
 		System.out.println("2. Delete Package");
 		System.out.println("3. Modify Package");
 		System.out.println("4. Back");
-		System.out.println("5. Exit");
+		System.out.println("5.Exit");
 		System.out.println("========================");
-		System.out.println("Input Choice (1-5) :");
+		System.out.print("Input Choice (1-4): ");
 		choice = myObj.nextInt();
 		System.out.print("\033[H\033[2J"); 
 		switch(choice){
 		    case 1:
-		        System.out.print("Package Name:");
+				myObj.nextLine();
+		        System.out.print("Package Name: ");
 		        String name = myObj.nextLine();
 		        
-		        System.out.print("Transportation:");
+		        System.out.print("Transportation: ");
 		        String jeniskend = myObj.next();
-		        
-		        System.out.print("Destination:");
+
+				myObj.nextLine();
+		        System.out.print("Destination: ");
 		        String dest = myObj.nextLine();
 		        
-		        System.out.print("Price:");
+		        System.out.print("Price: ");
 		        int harga = myObj.nextInt();
 		        
-		        System.out.print("Ticket Amount:");
+		        System.out.print("Ticket Amount: ");
 		        int jumlahtiket = myObj.nextInt();
 		        
-		      //  Packages output = new Packages();  
+		      	paket.add(new Packages(name,jeniskend,dest,harga,jumlahtiket));
+		      	System.out.println("Package added succesfully!!");
+		      	promptEnterKey();
+				adminsetting();
+		      
 		    case 2:
-		        System.out.print("Choose Package Number(Ex:1);");
-		        int choice1 = myObj.nextInt();
+				System.out.println("===========================================================================================================");
+				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+				for(int i = 0;i<paket.size();i++){
+					System.out.print((" | " + (i+1) + "\t || "));
+					paket.get(i).print_data();
+				}
+				System.out.println("===========================================================================================================");
+				System.out.print("Choose Package Number(Ex:1): ");
+				int choice2 = myObj.nextInt();
 		        
 		    case 3:
-		        System.out.println("Choose Package Number(Ex:1):");
-		        int choice2 = myObj.nextInt();
+		        // System.out.println("Choose Package Number(Ex:1):");
+		        // int choice2 = myObj.nextInt();
 		    case 4:
 		        main(null);
 		    case 5:
@@ -66,9 +80,9 @@ public class Main
 		
     }
     
-    static void usersetting(){
+    static void usersetting(int varr){
         System.out.print("\033[H\033[2J"); 
-        int choice;
+        int choice,choice1 = 0;
 		Scanner myObj = new Scanner(System.in);
 // 		paket travel = new paket(String pakett,String jenisken,String dest,int harga,int jumlah);
 		System.out.println("========================");
@@ -77,15 +91,73 @@ public class Main
 		System.out.println("3. Choose Travel Package");
 		System.out.println("4. Exit");
 		System.out.println("========================");
-		System.out.println("Input Choice (1-4) :");
+		System.out.print("Input Choice (1-4) :");
 		choice = myObj.nextInt();
 		switch (choice){
 		    case 1:
-		      //  print_data();
+		      cust.get(varr).get_data();
+		      promptEnterKey();
+		      usersetting(varr);
 		    case 2:
-		      //  modify_data();
+		      System.out.println("Choose Section you want to edit!!");
+		      System.out.println("1.Username");
+		      System.out.println("2.Password");
+		      System.out.println("3.Full Name");
+		      System.out.println("4.Address");
+		      System.out.println("5.Email");
+		      System.out.print("Input Choice(1-5): ");
+		      choice1 = myObj.nextInt();
+		      if(choice1 == 1){
+		          System.out.print("\nUsername: ");
+		          String changeid = myObj.next();
+		          cust.get(varr).set_id(changeid);
+		          System.out.println("Data has been successfully changed!");
+		          promptEnterKey();
+		          usersetting(varr);
+		      }
+		      else if(choice1 == 2){
+		          System.out.print("\nPassword: ");
+		          String changepass = myObj.next();
+		          cust.get(varr).set_pass(changepass);
+		          System.out.println("Data has been successfully changed!");
+		          promptEnterKey();
+		          usersetting(varr);
+		      }
+		      else if(choice1 == 3){
+				  myObj.nextLine();
+		          System.out.print("\nFull Name: ");
+		          String changefull = myObj.nextLine();
+		          cust.get(varr).set_name(changefull);
+		          System.out.println("Data has been successfully changed!");
+		          promptEnterKey();
+		          usersetting(varr);
+		      }
+		      else if(choice1 == 4){
+					myObj.nextLine();
+		          System.out.print("\nAddress: ");
+		          String changeaddr = myObj.nextLine();
+		          cust.get(varr).set_address(changeaddr);
+		          System.out.println("Data has been successfully changed!");
+		          promptEnterKey();
+		          usersetting(varr);
+		      }
+		      else if(choice1 == 5){
+		          System.out.print("\nEmail: ");
+		          String changemail = myObj.next();
+		          cust.get(varr).set_email(changemail);
+		          System.out.println("Data has been successfully changed!");
+		          promptEnterKey();
+		          usersetting(varr);
+		      }
+		      
 		    case 3:
-		      //  main();
+		      System.out.println(" |No.\t || Package Name || Transportation || Destination || Price || Ticket Amount");
+		      for(int i = 0;i<paket.size();i++){
+		          System.out.print((i+1));
+		          paket.get(i).print_data();
+		      }
+		      System.out.print("Choose Package Number(Ex:1): ");
+		      int choice2 = myObj.nextInt();
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");
 		        System.exit(0);
@@ -113,7 +185,7 @@ public class Main
 	    String mail = myObj.next();
 	    
 	   // Customer data = new Customer(uname, upass, ufname, adrs, mail);
-	   cust.add(new Customer(uname, upass, ufname, adrs, mail));
+	   	cust.add(new Customer(uname, upass, ufname, adrs, mail));
 		System.out.println("Your data has been registered!");
 		promptEnterKey();
 		main(null);
@@ -125,14 +197,15 @@ public class Main
 	   // Account check = new Account("tes","check");
 	   String idd = "";
 	   String passv = "";
+	   int var = 0;
 	    Scanner myObj = new Scanner(System.in);
 		System.out.print("\033[H\033[2J"); 
 		System.out.println("Main Page");
 		System.out.println("1. Login");
 		System.out.println("2. Register");
-		System.out.println("3. Check Account");
+		System.out.println("3.Check Account");
 		System.out.println("4. Exit");
-		System.out.println("Input Choice (1-4) :");
+		System.out.print("Input Choice (1-4): ");
 		int choice = myObj.nextInt();
 		do{
 		    System.out.print("\033[H\033[2J"); 
@@ -146,13 +219,14 @@ public class Main
 			        if(id.equals(cust.get(i).get_id()) && pass.equals(cust.get(i).get_pass()))
 			        idd = id;
 			        passv = pass;
+			        var = i;
 			    }
-			
+			    
 			    if((id.equals("ADM123"))&&(pass.equals("ADMPASS"))){
 				    adminsetting(); 
 			    }
 			    else if((id.equals(idd)) && (pass.equals(passv))){
-				    usersetting();
+				    usersetting(var);
 				    main(null);
 		    	}
 		    	else{
@@ -165,17 +239,19 @@ public class Main
 		        registersetting();
 		        main(null);
 		    }
+		    
 		    else if(choice == 3){
-		        System.out.println("Thank you for trying out this program!!!");
-		        promptEnterKey();
-		        System.exit(0);
-		    }
-		    else if(choice == 4){
 		        for(int i=0;i<cust.size();i++){
 		        cust.get(i).check_account();
 		        }
 		        promptEnterKey();
 		        main(null);
+		    }
+		    
+		    else if(choice == 4){
+		        System.out.println("Thank you for trying out this program!!!");
+		        promptEnterKey();
+		        System.exit(0);
 		    }
 		    else{
 		        System.out.println("Wrong Input!");

@@ -1,35 +1,31 @@
 import java.util.*;
 
 class Packages{
-    protected ArrayList<String> namapaket = new ArrayList<String>();
-    protected ArrayList<String> jeniskendaraan = new ArrayList<String>();
-    protected ArrayList<String> destinasi = new ArrayList<String>();
-    protected ArrayList<Integer> price = new ArrayList<Integer>();
-    protected ArrayList<Integer> jumlahtiket = new ArrayList<Integer>();
+    private static final int NULL = 0;
+    private String namapaket;
+    private String jeniskendaraan;
+    private String destinasi;
+    private Integer price;
+    private Integer jumlahtiket;
     
     Packages(String pakett,String jenisken,String dest,int harga,int jumlah){
-        this.namapaket.add(pakett);
-        this.jeniskendaraan.add(jenisken);
-        this.destinasi.add(dest);
-        this.price.add(harga);
-        this.jumlahtiket.add(jumlah);
+        this.namapaket = pakett;
+        this.jeniskendaraan = jenisken;
+        this.destinasi = dest;
+        this.price = harga;
+        this.jumlahtiket = jumlah;
     }
     
     void set_data(String pakett,String jenisken,String dest,int harga,int jumlah){
-        this.namapaket.add(pakett);
-        this.jeniskendaraan.add(jenisken);
-        this.destinasi.add(dest);
-        this.price.add(harga);
-        this.jumlahtiket.add(jumlah);
+        this.namapaket = pakett;
+        this.jeniskendaraan = jenisken;
+        this.destinasi = dest;
+        this.price = harga;
+        this.jumlahtiket = jumlah;
     }
     
     void print_data(){
-        System.out.println(" |No.\t || Package Name || Transportation || Destination || Price || Ticket Amount");
-        System.out.println("=========================================================================================");
-        for(int i=0;i<namapaket.size();i++){
-            System.out.println((i+1) + namapaket.get(i) + jeniskendaraan.get(i) + destinasi.get(i) + price.get(i) + jumlahtiket.get(i));
-        }
-       System.out.println("=========================================================================================");
+            System.out.println(this.namapaket + "\t || " + this.jeniskendaraan +  "\t || " +
+            this.destinasi +  "\t || " + this.price +  "\t || " + this.jumlahtiket + "\t |");
     }
-    
-} 
+}
