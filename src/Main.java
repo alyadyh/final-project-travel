@@ -28,7 +28,7 @@ public class Main
 		System.out.println("2. Delete Package");
 		System.out.println("3. Modify Package");
 		System.out.println("4. Back");
-		System.out.println("5.Exit");
+		System.out.println("5. Exit");
 		System.out.println("========================");
 		System.out.print("Input Choice (1-4): ");
 		choice = myObj.nextInt();
