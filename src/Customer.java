@@ -40,12 +40,4 @@ class Customer extends Account {
     void set_email(String email){
         this.cust_email = email;
     }
-    
-    void print_data(){
-        System.out.println("Username    : " + super.username);
-        System.out.println("Password    : " + super.password);
-        System.out.println("Name        : " + this.cust_name);
-        System.out.println("Address     : " + this.address);
-        System.out.println("Email       : " + this.cust_email);
-    }
 }
