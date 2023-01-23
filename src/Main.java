@@ -168,7 +168,7 @@ public class Main
 		System.out.println(" | 1. View Profile          |");
 		System.out.println(" | 2. Modify Profile        |");
 		System.out.println(" | 3. Choose Travel Package |");
-		System.out.println(" | 4. Exit                  |");
+		System.out.println(" | 4. Log out               |");
 		System.out.println(" +==========================+");
 		System.out.print(" Input Choice (1-4) : ");
 		choice = myObj.nextInt();
@@ -261,6 +261,9 @@ public class Main
 				Ticket<Integer> alltiket = new Ticket(cust.get(varr).get_id(),cust.get(varr).get_pass());
 				int uchoice = choice3 - 1;
 				alltiket.get_data(uchoice);
+
+				int changetiket = paket.get(choice3 - 1).get_jumlahtiket() - 1;
+			  	paket.get(choice3 - 1).set_jumlahtiket(changetiket);
 				System.out.println();
 		      	System.out.println("Are you certain??\n");
 		      	promptEnterKey();
@@ -269,7 +272,7 @@ public class Main
 		      
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");
-		        System.exit(0);
+				main(null);
 		}
     }
     
