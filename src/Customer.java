@@ -1,10 +1,6 @@
 import java.util.*;
 
 class Customer extends Account {
-    // private ArrayList<String> cust_name = new ArrayList<String>();
-    // private ArrayList<String> address = new ArrayList<String>();
-    // private ArrayList<String> cust_email = new ArrayList<String>();
-    
     protected String cust_name;
     protected String address;
     protected String cust_email;
@@ -16,6 +12,7 @@ class Customer extends Account {
         this.cust_email = cmail;
     }
     
+    // This method overloads the method in Account
     void set_data(String id, String pass, String cname, String addr, String cmail){
         super.username = id;
         super.password = pass;
@@ -42,10 +39,6 @@ class Customer extends Account {
     
     void set_email(String email){
         this.cust_email = email;
-    }
-    
-    void check_account(){
-        System.out.println(". "+super.username +" "+ super.password);
     }
     
     void print_data(){

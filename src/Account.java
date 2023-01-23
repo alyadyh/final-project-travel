@@ -8,6 +8,7 @@ class Account {
         this.username = id; 
         this.password = pass; 
     }
+    
     void set_data(String id, String pass){
         this.username = id; 
         this.password = pass;
@@ -36,8 +37,4 @@ class Account {
     String get_pass(){
         return this.password; 
     }
-    
-    void check_account(){
-            System.out.println(". "+this.username +" "+ this.password);
-        }
-    }
+}
