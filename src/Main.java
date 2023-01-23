@@ -9,7 +9,7 @@ public class Main
     static ArrayList<Reservation> reservasi = new ArrayList<Reservation>();
     static int increment = 0;
     
-     public static void promptEnterKey(){
+    public static void promptEnterKey(){
         System.out.println("Press \"ENTER\" to continue...");
         try {
             int read = System.in.read(new byte[2]);
@@ -170,7 +170,6 @@ public class Main
         System.out.print("\033[H\033[2J"); 
         int choice,choice1 = 0,choice3 = 0;
 		Scanner myObj = new Scanner(System.in);
-// 		paket travel = new paket(String pakett,String jenisken,String dest,int harga,int jumlah);
 		System.out.println(" +==========================+");
 		System.out.println(" | 1. View Profile          |");
 		System.out.println(" | 2. Modify Profile        |");
