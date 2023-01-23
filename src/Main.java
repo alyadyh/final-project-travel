@@ -59,6 +59,10 @@ public class Main
 				adminsetting();
 		      
 		    case 2:
+		        for(int i = 0;i<paket.size();i++){
+				    if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+		        	}
+		        	
 				if(paket.size() == 0){
 					System.out.println(" Package not available.");
 				}
@@ -80,6 +84,9 @@ public class Main
 				adminsetting();
 		        
 		    case 3:
+		        for(int i = 0;i<paket.size();i++){
+				    if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+		        }
 				if(paket.size() == 0){
 					System.out.println("Package not available.");
 				}
@@ -235,6 +242,16 @@ public class Main
 		      }
 		      
 		    case 3:
+		        for(int i = 0;i<paket.size();i++){
+				    if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+		        	}
+				    
+				if(paket.size() == 0){
+				    System.out.println(" Package not available.");
+					promptEnterKey();
+					usersetting(varr);
+				}
+				else{
 				System.out.println(" +==========================================================================================================+");
 				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
 				System.out.println(" +==========================================================================================================+");
@@ -280,6 +297,7 @@ public class Main
 					  continue choose;
 					}
 				}
+			}
 		      
 		    case 4:
 		        System.out.println(" Thank you for trying out this program!!!");
