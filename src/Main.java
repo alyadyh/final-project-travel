@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main
 {
-    static ArrayList<Customer> cust =new ArrayList<Customer>();
+    static ArrayList<Customer> cust = new ArrayList<Customer>();
     static ArrayList<Packages> paket = new ArrayList<Packages>();
     static ArrayList<Reservation> reservasi = new ArrayList<Reservation>();
     static int increment = 0;
