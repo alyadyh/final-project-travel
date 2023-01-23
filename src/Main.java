@@ -167,12 +167,15 @@ public class Main
 					adminsetting();
 				}
 				else{
-                System.out.println(" +===================================================+");
-				System.out.println(" | No.\t || Reservation ID\t || Username\t |");
+                System.out.println(" +================================================+");
+				System.out.println(" | No.\t || Reservation ID\t || Username\t  |");
+				System.out.println(" +================================================+");
 				for(int i=0;i<reservasi.size();i++){
 				    System.out.print((" | " + (i+1) + "\t || "));
-				    reservasi.get(i).get_data();
+				    reservasi.get(i).print_data();
 				}
+				System.out.println(" +================================================+");
+				System.out.println();
 				promptEnterKey();
 				}
 
@@ -303,6 +306,7 @@ public class Main
 								}
 							}
 					  		System.out.println();
+							System.out.print(" Reservation    : ");
 							reservasi.get(increment-1).get_data();
 	  
 					  		//Generic
