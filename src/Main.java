@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main
 {
     static ArrayList<Customer> cust =new ArrayList<Customer>();
-    static ArrayList<Packages> paket = new ArrayList<Packages>();
+    static ArrayList<Packages> paket = new ArrayList<Packages>(); // Object ArrayList
     static ArrayList<Reservation> reservasi = new ArrayList<Reservation>();
     static int increment = 0;
     
@@ -18,6 +18,7 @@ public class Main
         }
     }
     
+	//Fungsi untuk memasuki akses admin dimana admin memiliki akses untuk mengganti paket,menghapus paket,melihat riwayat pembelian,dll
     static void adminsetting(){
         System.out.print("\033[H\033[2J"); 
         int choice, choice2;
@@ -27,10 +28,11 @@ public class Main
 		System.out.println(" | 1. Add New Package     |");
 		System.out.println(" | 2. Delete Package      |");
 		System.out.println(" | 3. Modify Package      |");
-		System.out.println(" | 4. Back                |");
-		System.out.println(" | 5. Exit                |");
+		System.out.println(" | 4. Purchase History    |");
+		System.out.println(" | 5. Back                |");
+		System.out.println(" | 6. Exit                |");
 		System.out.println(" +========================+");
-		System.out.print(" Input Choice (1-4): ");
+		System.out.print(" Input Choice (1-6): ");
 		choice = myObj.nextInt();
 		System.out.print("\033[H\033[2J"); 
 		switch(choice){
@@ -158,19 +160,35 @@ public class Main
 			  		}
 				}
 
-		    case 4:
-		        main(null);
+			case 4:
+                if(reservasi.size() == 0){
+				    System.out.println(" Reservation not available.");
+					promptEnterKey();
+					adminsetting();
+				}
+				else{
+                System.out.println(" +===================================================+");
+				System.out.println(" | No.\t || Reservation ID\t || Username\t |");
+				for(int i=0;i<reservasi.size();i++){
+				    System.out.print((" | " + (i+1) + "\t || "));
+				    reservasi.get(i).get_data();
+				}
+				promptEnterKey();
+				}
+
 		    case 5:
+		        main(null);
+
+		    case 6:
 		        System.exit(0);
 		}
-		
     }
 
+	//Fungsi yang berguna ketika user akses aplikasi dan main menu nya 
     static void usersetting(int varr){
         System.out.print("\033[H\033[2J"); 
         int choice,choice1 = 0,choice3 = 0;
 		Scanner myObj = new Scanner(System.in);
-// 		paket travel = new paket(String pakett,String jenisken,String dest,int harga,int jumlah);
 		System.out.println(" +==========================+");
 		System.out.println(" | 1. View Profile          |");
 		System.out.println(" | 2. Modify Profile        |");
@@ -335,6 +353,7 @@ public class Main
 		main(null);
     }
     
+	//Fungsi main menu yang berguna untuk memuat main page
 	public static void main(String[] args) {
 		System.out.print("\033[H\033[2J"); 
 		
