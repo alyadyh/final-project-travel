@@ -245,25 +245,27 @@ public class Main
 				System.out.println(" +==========================================================================================================+");
 		      	System.out.print(" Choose Package Number(Ex:1): ");
 		      	choice3 = myObj.nextInt();
-		      	// System.out.print("\033[H\033[2J");
-		      	// increment++;
-		      	// reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
-		      	// for(int i=0;i<paket.size();i++){
-		        //   	if((i+  1) == choice3){
-		        //       	paket.get(i).get_data();
-		        //   	}
-		      	// }
-		      	// reservasi.get(increment).get_data();
+		      	System.out.print("\033[H\033[2J");
+		      	increment++;
+				System.out.println();
+		      	reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
+		      	for(int i=0;i<paket.size();i++){
+		          	if(i == choice3-1){
+		              	paket.get(i).get_data();
+		          	}
+		      	}
+				System.out.println();
+		      	reservasi.get(increment-1).get_data();
 
 				//Generic
-				Ticket alltiket = new Ticket();
+				Ticket<Integer> alltiket = new Ticket(cust.get(varr).get_id(),cust.get(varr).get_pass());
 				int uchoice = choice3 - 1;
-				String id1 = cust.get(varr).get_id();
-				alltiket.get_data(id1, uchoice);
+				alltiket.get_data(uchoice);
 				System.out.println();
 		      	System.out.println("Are you certain??\n");
 		      	promptEnterKey();
 				usersetting(varr);
+		      
 		      
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");

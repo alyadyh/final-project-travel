@@ -25,7 +25,7 @@ class Reservation extends Account{
             
         }
         
-        System.out.println("Reservation:");
+        System.out.print(" Reservation:");
         System.out.println("ResID" + t + this.increment);
     }
 }

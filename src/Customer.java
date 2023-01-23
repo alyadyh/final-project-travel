@@ -25,11 +25,11 @@ class Customer extends Account {
     }
     
     void get_data(){
-        System.out.println("Username    : " + super.username);
-        System.out.println("Password    : " + super.password);
-        System.out.println("Name        : " + this.cust_name);
-        System.out.println("Address     : " + this.address);
-        System.out.println("Email       : " + this.cust_email);
+        System.out.println(" Username    : " + super.username);
+        System.out.println(" Password    : " + super.password);
+        System.out.println(" Name        : " + this.cust_name);
+        System.out.println(" Address     : " + this.address);
+        System.out.println(" Email       : " + this.cust_email);
     }
     
     void set_name(String nama){
@@ -45,7 +45,7 @@ class Customer extends Account {
     }
     
     void check_account(){
-            System.out.println(". "+super.username +" "+ super.password);
+        System.out.println(". "+super.username +" "+ super.password);
     }
     
     void print_data(){
