@@ -13,6 +13,7 @@ class Ticket <T> extends Account{
         super.password = pass;
     }
 
+    //Generic Method
     public <T> void get_data(T choice){
         String t = "";
         String subchar = super.username.substring(0,4);
@@ -26,6 +27,6 @@ class Ticket <T> extends Account{
         int min = 10000;
         int max = 99999;
         int random_num = (int)(Math.random()*(max-min+1)+min);
-        System.out.println(" Ticket         : " + t + choice + random_num);
+        System.out.println(" Ticket             : " + t + choice + random_num);
     }
 }
