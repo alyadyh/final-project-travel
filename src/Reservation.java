@@ -34,4 +34,3 @@ class Reservation extends Account{
     //     System.out.println("Reservation: ");
     //     System.out.println("ResID" + Integer.parseInt(super.username) + apaaja);
     // }
-}

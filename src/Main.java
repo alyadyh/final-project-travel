@@ -46,7 +46,7 @@ public class Main
 		        System.out.print(" Destination	: ");
 		        String dest = myObj.nextLine();
 		        
-		        System.out.print(" Price			: ");
+		        System.out.print(" Price		: ");
 		        int harga = myObj.nextInt();
 		        
 		        System.out.print(" Ticket Amount	: ");
@@ -107,16 +107,18 @@ public class Main
 			  		System.out.print(" Input Choice(1-5): ");
 			  		int choice3 = myObj.nextInt();
 			  		if(choice3 == 1){
+						myObj.nextLine();
 			  			System.out.print("\n Package Name: ");
-			  			String changepackname = myObj.next();
+			  			String changepackname = myObj.nextLine();
 			  			paket.get(choice2 - 1).set_namapaket(changepackname);
 			  			System.out.println(" Data has been successfully changed!");
 			  			promptEnterKey();
 			  			adminsetting();
 			  		}
 			  		else if(choice3 == 2){
+						myObj.nextLine();
 			  			System.out.print("\n Transportation: ");
-			  			String changetransport = myObj.next();
+			  			String changetransport = myObj.nextLine();
 			  			paket.get(choice2 - 1).set_jenisken(changetransport);
 			  			System.out.println(" Data has been successfully changed!");
 			  			promptEnterKey();
@@ -132,7 +134,6 @@ public class Main
 			  			adminsetting();
 			  		}
 			  		else if(choice3 == 4){
-						myObj.nextLine();
 			  			System.out.print("\n Price: ");
 			  			int changeprice = myObj.nextInt();
 			  			paket.get(choice2 - 1).set_price(changeprice);
@@ -191,44 +192,44 @@ public class Main
 		      System.out.print("  Input Choice(1-5): ");
 		      choice1 = myObj.nextInt();
 		      if(choice1 == 1){
-		          System.out.print("\nUsername: ");
+		          System.out.print("\n Username: ");
 		          String changeid = myObj.next();
 		          cust.get(varr).set_id(changeid);
-		          System.out.println("Data has been successfully changed!");
+		          System.out.println(" Data has been successfully changed!");
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
 		      else if(choice1 == 2){
-		          System.out.print("\nPassword: ");
+		          System.out.print("\n Password: ");
 		          String changepass = myObj.next();
 		          cust.get(varr).set_pass(changepass);
-		          System.out.println("Data has been successfully changed!");
+		          System.out.println(" Data has been successfully changed!");
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
 		      else if(choice1 == 3){
 				  myObj.nextLine();
-		          System.out.print("\nFull Name: ");
+		          System.out.print("\n Full Name: ");
 		          String changefull = myObj.nextLine();
 		          cust.get(varr).set_name(changefull);
-		          System.out.println("Data has been successfully changed!");
+		          System.out.println(" Data has been successfully changed!");
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
 		      else if(choice1 == 4){
 					myObj.nextLine();
-		          System.out.print("\nAddress: ");
+		          System.out.print("\n Address: ");
 		          String changeaddr = myObj.nextLine();
 		          cust.get(varr).set_address(changeaddr);
-		          System.out.println("Data has been successfully changed!");
+		          System.out.println(" Data has been successfully changed!");
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
 		      else if(choice1 == 5){
-		          System.out.print("\nEmail: ");
+		          System.out.print("\n Email: ");
 		          String changemail = myObj.next();
 		          cust.get(varr).set_email(changemail);
-		          System.out.println("Data has been successfully changed!");
+		          System.out.println(" Data has been successfully changed!");
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
@@ -244,28 +245,25 @@ public class Main
 				System.out.println(" +==========================================================================================================+");
 		      	System.out.print(" Choose Package Number(Ex:1): ");
 		      	choice3 = myObj.nextInt();
-		      	System.out.print("\033[H\033[2J");
-		      	increment++;
-		      	reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
-		      	for(int i=0;i<paket.size();i++){
-		          	if((i+  1) == choice3){
-		              	paket.get(i).get_data();
-		          	}
-		      	}
-		      	reservasi.get(increment).get_data();
+		      	// System.out.print("\033[H\033[2J");
+		      	// increment++;
+		      	// reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
+		      	// for(int i=0;i<paket.size();i++){
+		        //   	if((i+  1) == choice3){
+		        //       	paket.get(i).get_data();
+		        //   	}
+		      	// }
+		      	// reservasi.get(increment).get_data();
 
 				//Generic
-				Transaction <Integer> tikett = new Transaction();
-				int q = choice3 - 1;
-				tikett.get_data(i);
-				for(int i=0;i<paket.size();i++){
-					if((i+  1) == choice3){
-						tiket.get(i).get_data(q);
-					}
-				}
+				Ticket alltiket = new Ticket();
+				int uchoice = choice3 - 1;
+				String id1 = cust.get(varr).get_id();
+				alltiket.get_data(id1, uchoice);
 				System.out.println();
 		      	System.out.println("Are you certain??\n");
 		      	promptEnterKey();
+				usersetting(varr);
 		      
 		    case 4:
 		        System.out.println("Thank you for trying out this program!!!");
@@ -286,7 +284,7 @@ public class Main
 	    System.out.print("Full Name	: ");
 	    String ufname = myObj.nextLine();
 	    
-	    System.out.print("Address	: ");
+	    System.out.print("Address		: ");
 	    String adrs = myObj.nextLine();
 	    
 	    System.out.print("Email		: ");
@@ -321,7 +319,7 @@ public class Main
 		    System.out.print("\033[H\033[2J"); 
 		    if(choice == 1){
 				System.out.println();
-			    System.out.print("Input ID		: ");
+			    System.out.print("Input ID	: ");
 			    String id = myObj.next();
 			    System.out.print("Input Password	: ");
 			    String pass = myObj.next();
@@ -341,6 +339,7 @@ public class Main
 				    main(null);
 		    	}
 		    	else{
+					System.out.println();
 		    	    System.out.println("Invalid Input");
 		    	    promptEnterKey();
 		    	    main(null);
