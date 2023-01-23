@@ -59,18 +59,21 @@ public class Main
 				adminsetting();
 		      
 		    case 2:
+				for(int i = 0;i<paket.size();i++){
+					if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+				}
 				if(paket.size() == 0){
 					System.out.println(" Package not available.");
 				}
 				else{
-					System.out.println(" +===========================================================================================================+");
+					System.out.println(" +==========================================================================================================+");
 					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
-					System.out.println(" +===========================================================================================================+");
+					System.out.println(" +==========================================================================================================+");
 					for(int i = 0;i<paket.size();i++){
 						System.out.print((" | " + (i+1) + "\t || "));
 						paket.get(i).print_data();
 					}
-					System.out.println(" +===========================================================================================================+");
+					System.out.println(" +==========================================================================================================+");
 					System.out.print("Choose Package Number(Ex:1): ");
 					choice2 = myObj.nextInt();
 					paket.remove(choice2 - 1);
@@ -80,17 +83,21 @@ public class Main
 				adminsetting();
 		        
 		    case 3:
+				for(int i = 0;i<paket.size();i++){
+					if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+				}
 				if(paket.size() == 0){
 					System.out.println("Package not available.");
 				}
 				else{
-					System.out.println(" +===========================================================================================================+");
+					System.out.println(" +==========================================================================================================+");
 					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
+					System.out.println(" +==========================================================================================================+");
 					for(int i = 0;i<paket.size();i++){
 						System.out.print((" | " + (i+1) + "\t || "));
 						paket.get(i).print_data();
 					}
-					System.out.println(" +===========================================================================================================+");
+					System.out.println(" +==========================================================================================================+");
 					System.out.print(" Choose Package Number(Ex:1): ");
 					choice2 = myObj.nextInt();
 
@@ -189,13 +196,14 @@ public class Main
 		      System.out.println("  4. Address");
 		      System.out.println("  5. Email");
 			  System.out.println(" +===================================+");
-		      System.out.print("  Input Choice(1-5): ");
+		      System.out.print(" Input Choice(1-5): ");
 		      choice1 = myObj.nextInt();
 		      if(choice1 == 1){
 		          System.out.print("\n Username: ");
 		          String changeid = myObj.next();
 		          cust.get(varr).set_id(changeid);
 		          System.out.println(" Data has been successfully changed!");
+				  System.out.println();
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
@@ -204,6 +212,7 @@ public class Main
 		          String changepass = myObj.next();
 		          cust.get(varr).set_pass(changepass);
 		          System.out.println(" Data has been successfully changed!");
+				  System.out.println();
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
@@ -213,6 +222,7 @@ public class Main
 		          String changefull = myObj.nextLine();
 		          cust.get(varr).set_name(changefull);
 		          System.out.println(" Data has been successfully changed!");
+				  System.out.println();
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
@@ -222,6 +232,7 @@ public class Main
 		          String changeaddr = myObj.nextLine();
 		          cust.get(varr).set_address(changeaddr);
 		          System.out.println(" Data has been successfully changed!");
+				  System.out.println();
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
@@ -230,54 +241,65 @@ public class Main
 		          String changemail = myObj.next();
 		          cust.get(varr).set_email(changemail);
 		          System.out.println(" Data has been successfully changed!");
+				  System.out.println();
 		          promptEnterKey();
 		          usersetting(varr);
 		      }
 		      
 		    case 3:
-				System.out.println(" +==========================================================================================================+");
-				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
-				System.out.println(" +==========================================================================================================+");
 				for(int i = 0;i<paket.size();i++){
-					System.out.print((" | " + (i+1) + "\t || "));
-					paket.get(i).print_data();
+					if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
 				}
-				System.out.println(" +==========================================================================================================+");
-		      	
-				choose:
-				while(choice != 0){
-					System.out.println();
-					System.out.print(" Choose Package Number(Ex:1): ");
-		      		choice3 = myObj.nextInt();
 
-					System.out.print(" Are you certain (Y/N)? ");
-					String choice4 = myObj.next();
-	  
-					if(choice4.equals("Y")){
-						System.out.print("\033[H\033[2J");
-						increment++;
-					  	System.out.println();
-						reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
-						for(int j=0;j<paket.size();j++){
-							if(j == choice3-1){
-								paket.get(j).get_data();
-							}
-						}
-					  	System.out.println();
-						reservasi.get(increment-1).get_data();
-	  
-					  	//Generic
-					  	Ticket<Integer> alltiket = new Ticket(cust.get(varr).get_id(),cust.get(varr).get_pass());
-					  	alltiket.get_data(choice3 - 1);
-	  
-					  	int changetiket = paket.get(choice3 - 1).get_jumlahtiket() - 1;
-						paket.get(choice3 - 1).set_jumlahtiket(changetiket);
-					  	System.out.println();
-						promptEnterKey();
-					  	usersetting(varr);
+				if(paket.size() == 0){
+					System.out.println(" Package not available.");
+					promptEnterKey();
+					usersetting(varr);
+				}
+				else{
+					System.out.println(" +=========================================================================================================+");
+					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
+					System.out.println(" +=========================================================================================================+");
+					for(int i = 0;i<paket.size();i++){
+						System.out.print((" | " + (i+1) + "\t || "));
+						paket.get(i).print_data();
 					}
-					else if(choice4.equals("N")){
-					  continue choose;
+					System.out.println(" +=========================================================================================================+");
+		      	
+					choose:
+					while(choice != 0){
+						System.out.println();
+						System.out.print(" Choose Package Number(Ex:1): ");
+		      			choice3 = myObj.nextInt();
+
+						System.out.print(" Are you certain (Y/N)? ");
+						String choice4 = myObj.next();
+						if(choice4.equals("Y") || choice4.equals("y")){
+							System.out.print("\033[H\033[2J");
+							increment++;
+					  		System.out.println();
+							reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
+							for(int j=0;j<paket.size();j++){
+								if(j == choice3-1){
+									paket.get(j).get_data();
+								}
+							}
+					  		System.out.println();
+							reservasi.get(increment-1).get_data();
+	  
+					  		//Generic
+					  		Ticket<Integer> alltiket = new Ticket(cust.get(varr).get_id(),cust.get(varr).get_pass());
+					  		alltiket.get_data(choice3 - 1);
+	  
+					  		int changetiket = paket.get(choice3 - 1).get_jumlahtiket() - 1;
+							paket.get(choice3 - 1).set_jumlahtiket(changetiket);
+					  		System.out.println();
+							promptEnterKey();
+					  		usersetting(varr);
+						}
+						else if(choice4.equals("N") || choice4.equals("n")){
+					  		continue choose;
+						}
 					}
 				}
 		      
