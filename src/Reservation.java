@@ -15,9 +15,18 @@ class Reservation extends Account{
         this.increment = incr;
     }
     
-    void get_data(){
+     void get_data(){
+        String t = "";
+        String subchar = super.username.substring(0,4);
+        for (int i = 0; i<subchar.length();++i) {
+            char ch = subchar.charAt(i);
+            int n = (int)ch - (int)'a' + 1;
+            t += String.valueOf(n);
+            
+        }
+        
         System.out.println("Reservation:");
-        System.out.println("ResID" + Integer.parseInt(super.username) + this.increment);
+        System.out.println("ResID" + t + this.increment);
     }
 }
 
