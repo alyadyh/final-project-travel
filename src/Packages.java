@@ -56,7 +56,7 @@ class Packages{
     }
 
     void print_data(){
-            System.out.println(this.namapaket + "\t || " + this.jeniskendaraan +  "\t || " +
-            this.destinasi +  "\t || " + this.price +  "\t || " + this.jumlahtiket + "\t |");
+            System.out.println(this.namapaket + "\t\t || " + this.jeniskendaraan +  "\t\t || " +
+            this.destinasi +  "\t || " + this.price +  "\t || " + this.jumlahtiket + "\t\t |");
     }
 }

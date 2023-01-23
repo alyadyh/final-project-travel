@@ -64,7 +64,7 @@ public class Main
 				}
 				else{
 					System.out.println(" +===========================================================================================================+");
-					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
 					System.out.println(" +===========================================================================================================+");
 					for(int i = 0;i<paket.size();i++){
 						System.out.print((" | " + (i+1) + "\t || "));
@@ -85,7 +85,7 @@ public class Main
 				}
 				else{
 					System.out.println(" +===========================================================================================================+");
-					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
 					for(int i = 0;i<paket.size();i++){
 						System.out.print((" | " + (i+1) + "\t || "));
 						paket.get(i).print_data();
@@ -236,67 +236,78 @@ public class Main
 		      
 		    case 3:
 				System.out.println(" +==========================================================================================================+");
-				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t || Ticket Amount |");
+				System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
 				System.out.println(" +==========================================================================================================+");
 				for(int i = 0;i<paket.size();i++){
 					System.out.print((" | " + (i+1) + "\t || "));
 					paket.get(i).print_data();
 				}
 				System.out.println(" +==========================================================================================================+");
-		      	System.out.print(" Choose Package Number(Ex:1): ");
-		      	choice3 = myObj.nextInt();
-		      	System.out.print("\033[H\033[2J");
-		      	increment++;
-				System.out.println();
-		      	reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
-		      	for(int i=0;i<paket.size();i++){
-		          	if(i == choice3-1){
-		              	paket.get(i).get_data();
-		          	}
-		      	}
-				System.out.println();
-		      	reservasi.get(increment-1).get_data();
+		      	
+				choose:
+				while(choice != 0){
+					System.out.println();
+					System.out.print(" Choose Package Number(Ex:1): ");
+		      		choice3 = myObj.nextInt();
 
-				//Generic
-				Ticket<Integer> alltiket = new Ticket(cust.get(varr).get_id(),cust.get(varr).get_pass());
-				int uchoice = choice3 - 1;
-				alltiket.get_data(uchoice);
-
-				int changetiket = paket.get(choice3 - 1).get_jumlahtiket() - 1;
-			  	paket.get(choice3 - 1).set_jumlahtiket(changetiket);
-				System.out.println();
-		      	System.out.println("Are you certain??\n");
-		      	promptEnterKey();
-				usersetting(varr);
-		      
+					System.out.print(" Are you certain (Y/N)? ");
+					String choice4 = myObj.next();
+	  
+					if(choice4.equals("Y")){
+						System.out.print("\033[H\033[2J");
+						increment++;
+					  	System.out.println();
+						reservasi.add(new Reservation(cust.get(varr).get_id(),cust.get(varr).get_pass(),increment));
+						for(int j=0;j<paket.size();j++){
+							if(j == choice3-1){
+								paket.get(j).get_data();
+							}
+						}
+					  	System.out.println();
+						reservasi.get(increment-1).get_data();
+	  
+					  	//Generic
+					  	Ticket<Integer> alltiket = new Ticket(cust.get(varr).get_id(),cust.get(varr).get_pass());
+					  	alltiket.get_data(choice3 - 1);
+	  
+					  	int changetiket = paket.get(choice3 - 1).get_jumlahtiket() - 1;
+						paket.get(choice3 - 1).set_jumlahtiket(changetiket);
+					  	System.out.println();
+						promptEnterKey();
+					  	usersetting(varr);
+					}
+					else if(choice4.equals("N")){
+					  continue choose;
+					}
+				}
 		      
 		    case 4:
-		        System.out.println("Thank you for trying out this program!!!");
-				main(null);
+		        System.out.println(" Thank you for trying out this program!!!");
+ 				main(null);
 		}
     }
-    
-    static void registersetting(){
+
+	static void registersetting(){
         System.out.print("\033[H\033[2J"); 
 		Scanner myObj = new Scanner(System.in);
-		System.out.print("Username	: ");
+		System.out.print(" Username	: ");
 	    String uname = myObj.next();
 	    
-	    System.out.print("Password	: ");
+	    System.out.print(" Password	: ");
 	    String upass = myObj.next();
 	    
 	    myObj.nextLine();
-	    System.out.print("Full Name	: ");
+	    System.out.print(" Full Name	: ");
 	    String ufname = myObj.nextLine();
 	    
-	    System.out.print("Address		: ");
+	    System.out.print(" Address	: ");
 	    String adrs = myObj.nextLine();
 	    
-	    System.out.print("Email		: ");
+	    System.out.print(" Email		: ");
 	    String mail = myObj.next();
 	   
 	   	cust.add(new Customer(uname, upass, ufname, adrs, mail));
-		System.out.println("Your data has been registered!");
+		System.out.println(" Your data has been registered!");
 		System.out.println();
 		promptEnterKey();
 		main(null);
@@ -322,10 +333,9 @@ public class Main
 		do{
 		    System.out.print("\033[H\033[2J"); 
 		    if(choice == 1){
-				System.out.println();
-			    System.out.print("Input ID	: ");
+			    System.out.print(" Input ID	: ");
 			    String id = myObj.next();
-			    System.out.print("Input Password	: ");
+			    System.out.print(" Input Password	: ");
 			    String pass = myObj.next();
 			    
 			    for(int i=0;i<cust.size();i++){
@@ -344,7 +354,7 @@ public class Main
 		    	}
 		    	else{
 					System.out.println();
-		    	    System.out.println("Invalid Input");
+		    	    System.out.println(" Invalid Input");
 		    	    promptEnterKey();
 		    	    main(null);
 		    	}
@@ -355,12 +365,12 @@ public class Main
 		    }
 		    
 		    else if(choice == 3){
-		        System.out.println("Thank you for trying out this program!!!");
+		        System.out.println(" Thank you for trying out this program!!!");
 		        promptEnterKey();
 		        System.exit(0);
 		    }
 		    else{
-		        System.out.println("Wrong Input!");
+		        System.out.println(" Wrong Input!");
 		        promptEnterKey();
 		        main(null);
 	    	}
