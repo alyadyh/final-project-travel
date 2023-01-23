@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Main
 {
     static ArrayList<Customer> cust = new ArrayList<Customer>();
-    static ArrayList<Packages> paket = new ArrayList<Packages>();
+    static ArrayList<Packages> paket = new ArrayList<Packages>(); // Object ArrayList
     static ArrayList<Reservation> reservasi = new ArrayList<Reservation>();
     static int increment = 0;
     
-     public static void promptEnterKey(){
+     public static void promptEnterKey(){ 
         System.out.println("Press \"ENTER\" to continue...");
         try {
             int read = System.in.read(new byte[2]);
@@ -18,7 +18,7 @@ public class Main
         }
     }
     
-    static void adminsetting(){
+    static void adminsetting(){ //Fungsi untuk memasuki akses admin dimana admin memiliki akses untuk mengganti paket,menghapus paket,melihat riwayat pembelian,dll
         System.out.print("\033[H\033[2J"); 
         int choice, choice2;
 		Scanner myObj = new Scanner(System.in);
@@ -27,8 +27,9 @@ public class Main
 		System.out.println(" | 1. Add New Package     |");
 		System.out.println(" | 2. Delete Package      |");
 		System.out.println(" | 3. Modify Package      |");
-		System.out.println(" | 4. Back                |");
-		System.out.println(" | 5. Exit                |");
+		System.out.println(" | 4. Purchase History    |");
+		System.out.println(" | 5. Back                |");
+		System.out.println(" | 6. Exit                |");
 		System.out.println(" +========================+");
 		System.out.print(" Input Choice (1-4): ");
 		choice = myObj.nextInt();
@@ -59,21 +60,22 @@ public class Main
 				adminsetting();
 		      
 		    case 2:
-				for(int i = 0;i<paket.size();i++){
-					if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
-				}
+		        for(int i = 0;i<paket.size();i++){
+				    if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+		        	}
+		        	
 				if(paket.size() == 0){
 					System.out.println(" Package not available.");
 				}
 				else{
-					System.out.println(" +==========================================================================================================+");
+					System.out.println(" +===========================================================================================================+");
 					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
-					System.out.println(" +==========================================================================================================+");
+					System.out.println(" +===========================================================================================================+");
 					for(int i = 0;i<paket.size();i++){
 						System.out.print((" | " + (i+1) + "\t || "));
 						paket.get(i).print_data();
 					}
-					System.out.println(" +==========================================================================================================+");
+					System.out.println(" +===========================================================================================================+");
 					System.out.print("Choose Package Number(Ex:1): ");
 					choice2 = myObj.nextInt();
 					paket.remove(choice2 - 1);
@@ -83,21 +85,21 @@ public class Main
 				adminsetting();
 		        
 		    case 3:
-				for(int i = 0;i<paket.size();i++){
-					if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
-				}
+		        for(int i = 0;i<paket.size();i++){
+				    if(paket.get(i).get_jumlahtiket() == 0) paket.remove(i);
+		        }
 				if(paket.size() == 0){
 					System.out.println("Package not available.");
+					promptEnterKey();
 				}
 				else{
-					System.out.println(" +==========================================================================================================+");
+					System.out.println(" +===========================================================================================================+");
 					System.out.println(" | No.\t || Package Name\t || Transportation\t || Destination\t || Price\t ||  Ticket Amount  |");
-					System.out.println(" +==========================================================================================================+");
 					for(int i = 0;i<paket.size();i++){
 						System.out.print((" | " + (i+1) + "\t || "));
 						paket.get(i).print_data();
 					}
-					System.out.println(" +==========================================================================================================+");
+					System.out.println(" +===========================================================================================================+");
 					System.out.print(" Choose Package Number(Ex:1): ");
 					choice2 = myObj.nextInt();
 
@@ -157,20 +159,34 @@ public class Main
 			  			adminsetting();
 			  		}
 				}
-
-		    case 4:
-		        main(null);
+            case 4:
+                
+                if(reservasi.size() == 0){
+				    System.out.println(" Reservation not available.");
+					promptEnterKey();
+					adminsetting();
+				}
+				else{
+                System.out.println(" +===================================================+");
+				System.out.println(" | No.\t || Reservation ID\t || Username\t |");
+				for(int i=0;i<reservasi.size();i++){
+				    System.out.print((" | " + (i+1) + "\t || "));
+				    reservasi.get(i).print_data();
+				}
+				promptEnterKey();
+				}
 		    case 5:
+		        main(null);
+		    case 6:
 		        System.exit(0);
 		}
 		
     }
 
-    static void usersetting(int varr){
+    static void usersetting(int varr){ //Fungsi yang berguna ketika user akses aplikasi dan main menu nya 
         System.out.print("\033[H\033[2J"); 
         int choice,choice1 = 0,choice3 = 0;
 		Scanner myObj = new Scanner(System.in);
-// 		paket travel = new paket(String pakett,String jenisken,String dest,int harga,int jumlah);
 		System.out.println(" +==========================+");
 		System.out.println(" | 1. View Profile          |");
 		System.out.println(" | 2. Modify Profile        |");
@@ -335,7 +351,7 @@ public class Main
 		main(null);
     }
     
-	public static void main(String[] args) {
+	public static void main(String[] args) { //Fungsi main menu yang berguna untuk memuat main page
 		System.out.print("\033[H\033[2J"); 
 		
 		String idd = "";
