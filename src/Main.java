@@ -315,10 +315,9 @@ public class Main
 		System.out.println(" +======================+");
 		System.out.println(" | 1. Login             |");
 		System.out.println(" | 2. Register          |");
-		System.out.println(" | 3. Check Account     |");
-		System.out.println(" | 4. Exit              |");
+		System.out.println(" | 3. Exit              |");
 		System.out.println(" +======================+");
-		System.out.print(" Input Choice (1-4): ");
+		System.out.print(" Input Choice (1-3): ");
 		int choice = myObj.nextInt();
 		do{
 		    System.out.print("\033[H\033[2J"); 
@@ -356,14 +355,6 @@ public class Main
 		    }
 		    
 		    else if(choice == 3){
-		        for(int i=0;i<cust.size();i++){
-		        cust.get(i).check_account();
-		        }
-		        promptEnterKey();
-		        main(null);
-		    }
-		    
-		    else if(choice == 4){
 		        System.out.println("Thank you for trying out this program!!!");
 		        promptEnterKey();
 		        System.exit(0);
