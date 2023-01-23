@@ -5,9 +5,9 @@ class Customer extends Account {
     // private ArrayList<String> address = new ArrayList<String>();
     // private ArrayList<String> cust_email = new ArrayList<String>();
     
-    private String cust_name;
-    private String address;
-    private String cust_email;
+    protected String cust_name;
+    protected String address;
+    protected String cust_email;
     
     Customer(String id, String pass, String cname, String addr, String cmail) {
         super(id, pass);
@@ -25,11 +25,11 @@ class Customer extends Account {
     }
     
     void get_data(){
-        System.out.println("Username = " + super.username);
-        System.out.println("Password = " + super.password);
-        System.out.println("Name = " + this.cust_name);
-        System.out.println("Address = " + this.address);
-        System.out.println("Email = " + this.cust_email);
+        System.out.println("Username    : " + super.username);
+        System.out.println("Password    : " + super.password);
+        System.out.println("Name        : " + this.cust_name);
+        System.out.println("Address     : " + this.address);
+        System.out.println("Email       : " + this.cust_email);
     }
     
     void set_name(String nama){
@@ -49,10 +49,10 @@ class Customer extends Account {
     }
     
     void print_data(){
-        System.out.println("Username = " + super.username);
-        System.out.println("Password = " + super.password);
-        System.out.println("Name = " + this.cust_name);
-        System.out.println("Address = " + this.address);
-        System.out.println("Email = " + this.cust_email);
+        System.out.println("Username    : " + super.username);
+        System.out.println("Password    : " + super.password);
+        System.out.println("Name        : " + this.cust_name);
+        System.out.println("Address     : " + this.address);
+        System.out.println("Email       : " + this.cust_email);
     }
 }
