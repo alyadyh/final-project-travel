@@ -187,7 +187,7 @@ public class Main
 		}
     }
 
-	//Fungsi yang berguna ketika user akses aplikasi dan main menu nya 
+	//Fungsi yang berguna ketika user akses aplikasi dan user menu nya 
     static void usersetting(int varr){
         System.out.print("\033[H\033[2J"); 
         int choice,choice1 = 0,choice3 = 0;

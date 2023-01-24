@@ -1,18 +1,12 @@
-## Getting Started
+## Pilihan topik:
+1.Digitalisasi Travel(Pembuatan program Java untuk support e-travel sederhana termasuk pembelian tiket dan reservasi)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## GUI:
+1.Sign In Page(Ada 2 jenis login yaitu User dan Admin)
+2.Rencana UI:
+2.1 Menu Admin
+Admin bisa melihat list tiket dan menambahkan tiket reservasi dan menghapus tiket yang sudah usang
+2.2 Menu User
+User bisa melihat daftar tiket kemudian memilih tiket reservasi yang diinginkan(fitur sorting tambahan agar user bisa melihat jangkauan harga)
+2.3 Reservation Menu
+Berisi deskripsi tentang tiket yang akan dipilih oleh user dan harganya
