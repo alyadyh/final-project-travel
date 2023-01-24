@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="294.0" prefWidth="215.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeletePackageController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="266.0" prefWidth="188.0" style="-fx-background-color: white;">
+         <children>
+            <TextArea layoutX="6.0" layoutY="7.0" prefHeight="68.0" prefWidth="175.0" text="Package 1&#10;1. Name&#10;2. Transportation&#10;3. Destination&#10;4. Price&#10;5. Ticket Amount&#10;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextArea>
+            <TextArea layoutX="6.0" layoutY="84.0" prefHeight="68.0" prefWidth="175.0" text="Package 2&#10;1. Name&#10;2. Transportation&#10;3. Destination&#10;4. Price&#10;5. Ticket Amount&#10;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextArea>
+            <TextArea layoutX="6.0" layoutY="161.0" prefHeight="68.0" prefWidth="175.0" text="Package 3&#10;1. Name&#10;2. Transportation&#10;3. Destination&#10;4. Price&#10;5. Ticket Amount&#10;">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </TextArea>
+            <Text layoutX="7.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Package Number">
+               <font>
+                  <Font name="Cambria" size="11.0" />
+               </font>
+            </Text>
+            <TextField fx:id="packNumber" layoutX="101.0" layoutY="235.0" prefHeight="25.0" prefWidth="79.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
